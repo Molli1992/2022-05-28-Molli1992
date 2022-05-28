@@ -22,6 +22,24 @@ const { Stack } = require("./DS");
 
 function crearStack(palabra) {
 
+    var nuevoStack = new Stack();
+
+    if (palabra === "") return false;
+
+   for (let i = 0; i < palabra.length; i++) {
+
+    if (palabra[i] !== "*") {
+      nuevoStack.push(palabra[i])
+    }
+    if (nuevoStack.size() === 0) {
+      return "Stack vacío"
+    }
+    if (palabra[i] === "*") {
+      nuevoStack.pop()
+    }
+   }
+
+  return nuevoStack;  
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

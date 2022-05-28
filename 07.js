@@ -19,6 +19,21 @@
 
 var restArray = function(array){
     // Tu código acá
+    var suma = 0;
+    var contar = 0;
+
+    for (let i = 0; i < array.length; i++) { 
+        if(Array.isArray(array[i])) {
+          contar = contar - 1;
+            
+            suma = suma + restArray(array[i])
+        }
+        else {
+            suma = suma + array[i];
+        }
+    }
+
+    return suma + contar;
 
 }
 

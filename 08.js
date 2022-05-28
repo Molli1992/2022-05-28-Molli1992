@@ -17,11 +17,70 @@
         // la ecuacion quedaria 5-3 = 2, 2*4 = 8, 8/2 = 4, 4^2 ------> resultado = 16
 
 
+
+
     
 function countDeep(arr) {
   // Tu código aca:
 
-} 
+  var sumaArreglos = 1;
+  var sumaStrings = 0;
+  var sumaNumbers = 0;
+  var sumaBooleanos = 0;
+  var sumaUndefined = 0;
+ 
+  for (let i = 0; i < arr.length; i++) {
+
+   if(Array.isArray(arr[i])) {
+
+    this.sumaArreglos++;
+
+     for (let j = 0; j < arr[i].length; j++) {
+
+      if (typeof arr[j] === "string") {
+        sumaStrings++;
+      }
+      else if (typeof arr[j] === "number") {
+        sumaNumbers++;
+      }
+      else if (typeof arr[j] === "undefined") {
+        sumaUndefined++;
+      }
+      else if (arr[j] === true || false) {
+        sumaBooleanos++;
+      }
+       
+     }
+  }
+    else if (typeof arr[i] === "string") {
+      sumaStrings++;
+    }
+    else if (typeof arr[i] === "number") {
+      sumaNumbers++;
+    }
+    else if (typeof arr[i] === "undefined") {
+      sumaUndefined++;
+    }
+    else if (arr[i] === true || false) {
+      sumaBooleanos++;
+    }
+   
+}
+
+console.log(sumaArreglos);
+console.log(sumaNumbers);
+console.log(sumaStrings);
+console.log(sumaBooleanos);
+console.log(sumaUndefined);
+
+var suma = sumaArreglos - sumaNumbers;
+  var producto = suma * sumaStrings;
+  var division = producto / sumaBooleanos;
+  var elevado = division ** sumaUndefined;
+
+  return elevado;
+
+}
 // No modifiques nada debajo de esta linea //
 
 module.exports = countDeep

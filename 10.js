@@ -10,8 +10,27 @@
 
 function insertAndSort(array, obj) {
   // Tu código acá
-  
+
+  var arre = array;
+
+  for (const property in obj) {
+    arre.push(obj[property]);
+  }
+
+  for (let i = 1; i < arre.length; i++) {
+    let j = i - 1;
+    let aux = arre[i];
+    while (j >= 0 && arre[j] > aux) {
+      arre[j + 1] = arre[j];
+      j--;
+    }
+    arre[j + 1] = aux;
+  }
+  return arre;
+
 }
+
+
 
 //⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
 module.exports = insertAndSort;
